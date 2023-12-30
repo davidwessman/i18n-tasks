@@ -326,6 +326,7 @@ RSpec.describe 'UsedKeysErb' do
     it '#used_keys' do
       used_keys = task.used_tree
       expect(used_keys.size).to eq(1)
+      binding.pry
       leaves = used_keys.leaves.to_a
       expect(leaves.size).to(eq(7))
     end

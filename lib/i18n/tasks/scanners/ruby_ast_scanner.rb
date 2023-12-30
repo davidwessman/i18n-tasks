@@ -31,7 +31,10 @@ module I18n::Tasks::Scanners
     def scan_file(path)
       ast, comments = path_to_ast_and_comments(path)
 
-      ast_to_occurences(ast) + comments_to_occurences(path, ast, comments)
+      results = ast_to_occurences(ast)
+      comments = comments_to_occurences(path, ast, comments)
+      binding.pry
+      results + comments
     rescue Exception => e # rubocop:disable Lint/RescueException
       raise ::I18n::Tasks::CommandError.new(e, "Error scanning #{path}: #{e.message}")
     end

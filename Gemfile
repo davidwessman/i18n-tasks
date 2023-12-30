@@ -1,18 +1,25 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Specify your gem's dependencies in i18n-tasks.gemspec
 gemspec
 
 platform :rbx do
   # https://github.com/rubinius/rubinius/issues/2632
-  gem 'racc'
+  gem "racc"
 end
 
-unless ENV['CI']
+unless ENV["CI"]
   group :development do
-    gem 'byebug', platforms: %i[mri mswin x64_mingw_21 x64_mingw_22], require: false # rubocop:disable Naming/VariableNumber
-    gem 'rubinius-debugger', platform: :rbx, require: false
+    gem "byebug",
+        platforms: %i[mri mswin x64_mingw_21 x64_mingw_22],
+        require: false # rubocop:disable Naming/VariableNumber
+    gem "rubinius-debugger", platform: :rbx, require: false
   end
 end
+
+gem "w_syntax_tree-erb",
+    path: "/Users/davidwessman/programming/rails/gems/syntax_tree-erb"
+gem "syntax_tree",
+    path: "/Users/davidwessman/programming/rails/gems/syntax_tree"
